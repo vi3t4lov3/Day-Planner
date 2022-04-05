@@ -22,15 +22,12 @@ function displayScheduleTimes(i, businessHours) {
     //display list of business hours 9 am to 5pm
     var businessHoursColumn = $('<div>').addClass('col-sm-2 timeCol').text(displayHours + ':00');
     // display the scheduleNoteColumn
-    var scheduleNoteColumn = $('<div>').addClass('col-sm-8 schedule').text(type);
-    var saveColumn = $()
+    var scheduleNoteColumn = $(`<div class='col-sm-8 schedule id=${businessHours}'><input class='inputText'></div>`);
+    var saveColumn = $(`<div class="col-sm-2" id="save"><button type="button" class="btn btn-info" id='${businessHours}'><i class="fas fa-save"></i></button></div>`);
 
+    var displayRow = $('<div>').addClass('row').append(businessHoursColumn,scheduleNoteColumn, saveColumn);
 
-
-
-
-    $('.container').append(scheduleNoteColumn)
+    $('.container').append(displayRow)
      
-
 }
 
