@@ -3,7 +3,9 @@ body {
   font-size: 16px;
   line-height: 1;
 }
-
+hr {
+  color: gray;
+}
 textarea {
   background: transparent;
   border: none;
@@ -14,9 +16,11 @@ textarea {
 }
 
 .jumbotron {
+  background-image: url('/img/bg.jpg');
+  background-size: cover; 
   text-align: center;
   background-color: transparent;
-  color: black;
+  color: #fff;
   border-radius: 0;
   border-bottom: 10px solid black;
 }
@@ -70,8 +74,10 @@ textarea {
   transition: all 0.3s ease-in-out;
 }
 /* my custom to overwrite the Jquery or Bootstrap */
-.btn {
-  
+.container {
+  /* display: flex;
+  flex-direction: column;
+  flex-wrap: wrap; */
 }
 
 .btn-info {
@@ -93,7 +99,13 @@ textarea {
 .schedule {
   border-radius: 15px;
 }
+.save {
+  align-self: center;
+  /* align-content: left; */
+}
+
 #currentDay {
-  margin-bottom: 0em;
+ font-size: 30px;
+ font-weight: bold;
 }
 
