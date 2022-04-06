@@ -27,16 +27,16 @@ function displayScheduleTimes(i, businessHours) {
     }
     //display list of business hours 9 am to 5pm
     
-    var businessHoursColumn = $(`<div class='col-sm-2 timeCol'></div>`).text(displayHours + dayNight).css({color: 'blue', fontWeight: 'bold', fontSize: '30px'});''
+    var businessHoursColumn = $(`<div class='col-sm-2 hour'></div>`).text(displayHours + dayNight).css({color: 'blue', fontWeight: 'bold', fontSize: '30px'});''
     // display the scheduleNoteColumn
     var scheduleNoteColumn = $(`<div class='col-sm-8 schedule' id='${businessHours + 'a'}'><input class='inputText'></div>`);
     //display the save button
-    var saveColumn = $(`<div class='col-sm-2 save' id='save'><button type='button' class='btn btn-info' id='${businessHours + 'b'}'><i class='fas fa-save'></i></button></div>`);
+    var saveColumn = $(`<div class='btn saveBtn col-sm-2' id='save'><button type='button' class='btn' id='${businessHours + 'b'}'><i class='fas fa-save'></i></button></div>`);
     //display the row of 3 column above
     var displayRow = $(`<div class='row' id='${businessHours}'></div>`).append(businessHoursColumn, scheduleNoteColumn, saveColumn);
 
     //appending row to the home page HTML
-    $('.container').append(displayRow)
+    $('.container').append(displayRow);
 
     //getting the localStorage
     var savedNote = window.localStorage.getItem(businessHours + 'a');
@@ -53,8 +53,9 @@ function displayScheduleTimes(i, businessHours) {
         window.location.reload()
     });
 
-    // set color still not work yet.... can't fixgute out the current time compare with the usinessHours
-    var currentHour = moment().format('LT');
+    // set color still not work yet.... can't fixgute out the current time compare with the businessHours
+    var currentHour = moment().hour();
+    
     if (businessHours === currentHour) {
         $('#' + businessHours[i]).css('backgroundColor', 'red');
     }
