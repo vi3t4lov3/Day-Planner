@@ -1,5 +1,5 @@
 var todayDisplayEl = $('#currentDay');
-var displayBusinessHoursEl = $('#displayBusiness');
+
 //display the current day
 function displayCurrentDay() {
     var today = moment().format('dddd DD, YYYY hh:mm:ss');
@@ -13,21 +13,33 @@ $('document').ready(function() {
     for (i = 0 ; i < businessHours.length; i++) {
         displayScheduleTimes(i, businessHours[i]);
     }
-})
 
 // create a work schedule hours
 function displayScheduleTimes(i, businessHours) {
     var displayHours = businessHours > 12 ? businessHours - 12 : businessHours;
-
     //display list of business hours 9 am to 5pm
-    var businessHoursColumn = $('<div>').addClass('col-sm-2 timeCol').text(displayHours + ':00');
+    var businessHoursColumn = $(`<div class='col-sm-2 timeCol'></div>`).text(displayHours + ':00');
     // display the scheduleNoteColumn
-    var scheduleNoteColumn = $(`<div class='col-sm-8 schedule id=${businessHours}'><input class='inputText'></div>`);
-    var saveColumn = $(`<div class="col-sm-2" id="save"><button type="button" class="btn btn-info" id='${businessHours}'><i class="fas fa-save"></i></button></div>`);
+    var scheduleNoteColumn = $(`<div class='col-sm-8 schedule' id='${businessHours + 'a'}'><input class='inputText'></div>`);
+    //display the save button
+    var saveColumn = $(`<div class='col-sm-2' id='save'><button type='button' class='btn btn-info' id='${businessHours + 'b'}'><i class='fas fa-save'></i></button></div>`);
+    //display the row of 3 column above
+    var displayRow = $(`<div class='row' id='${businessHours}'></div>`).append(businessHoursColumn, scheduleNoteColumn, saveColumn);
 
-    var displayRow = $('<div>').addClass('row').append(businessHoursColumn,scheduleNoteColumn, saveColumn);
-
+    //appending row to the home page HTML
     $('.container').append(displayRow)
-     
-}
 
+    var savedNote = window.localStorage.getItem(businessHours + 'a');
+    if (savedNote !== null) {
+        $('#' + businessHours + 'a input').val(savedNote);
+    }
+}
+$('.btn').on('click', function(){
+    var buttonId = $(this).attr('id');
+    var textId = buttonId.replace('b', 'a');
+    var textContent = $('#' + textId).children()[0].value;
+    // console.log(textContent)
+    localStorage.setItem(textId, textContent);
+});
+
+});
