@@ -28,7 +28,7 @@ function displayScheduleTimes(i, businessHours) {
     //display list of business hours 9 am to 5pm
     var businessHoursColumn = $(`<div class='col-sm-2 timeCol'></div>`).text(displayHours + ':00' + dayNight).css({color: 'blue', fontWeight: 'bold'});''
     // display the scheduleNoteColumn
-    var scheduleNoteColumn = $(`<div class='col-sm-8' id='${businessHours + 'a'}'><input class='inputText'></div>`);
+    var scheduleNoteColumn = $(`<div class='col-sm-8 schedule' id='${businessHours + 'a'}'><input class='inputText'></div>`);
     //display the save button
     var saveColumn = $(`<div class='col-sm-2' id='save'><button type='button' class='btn btn-info' id='${businessHours + 'b'}'><i class='fas fa-save'></i></button></div>`);
     //display the row of 3 column above
@@ -40,7 +40,7 @@ function displayScheduleTimes(i, businessHours) {
     //getting the localStorage
     var savedNote = window.localStorage.getItem(businessHours + 'a');
     if (savedNote !== null) {
-        $('#' + businessHours + 'a input').val(savedNote);
+        $('#' + businessHours + 'a input').css({backgroundColor: 'gray', borderRadius: '5px', color: "#fff"}).val(savedNote);
     }
 }
     //setting the key value to local storage
@@ -49,6 +49,7 @@ function displayScheduleTimes(i, businessHours) {
         var textId = buttonId.replace('b', 'a');
         var textContent = $('#' + textId).children()[0].value;
         localStorage.setItem(textId, textContent);
+        window.location.reload()
     });
 
     // set color

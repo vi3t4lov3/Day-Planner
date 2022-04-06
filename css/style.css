@@ -90,6 +90,9 @@ textarea {
   text-align: right;
   padding: .5em;
 }
+.schedule {
+  border-radius: 15px;
+}
 #currentDay {
   margin-bottom: 0em;
 }
