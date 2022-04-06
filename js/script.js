@@ -53,7 +53,7 @@ function displayScheduleTimes(i, businessHours) {
         window.location.reload()
     });
 
-    // set color
+    // set color still not work yet.... can't fixgute out the current time compare with the usinessHours
     var currentHour = moment().format('LT');
     if (businessHours === currentHour) {
         $('#' + businessHours[i]).css('backgroundColor', 'red');
