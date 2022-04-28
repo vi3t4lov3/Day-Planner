@@ -28,7 +28,7 @@ THEN the saved events persist
 # Usage
  You can run a local copy of this site by issuing the following commands. 
 ```bash
-$ git clone https://github.com/vi3t4lov3/HW5-Day-Planner.git
+$ git clone https://github.com/vi3t4lov3/Day-Planner.git
 $ cd HW5-Day-Planner
 ```
 ## Contributing
@@ -38,7 +38,7 @@ $ cd HW5-Day-Planner
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
 ## The Demo Page
-https://vi3t4lov3.github.io/HW5-Day-Planner/
+https://vi3t4lov3.github.io/Day-Planner/
 
 ![imagename](./img/img1.png)
 
